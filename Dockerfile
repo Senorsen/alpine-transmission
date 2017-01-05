@@ -14,6 +14,9 @@ COPY src/ .
 
 VOLUME ["/transmission/downloads"]
 VOLUME ["/transmission/incomplete"]
+VOLUME ["/etc/transmission-daemon/resume"]
+VOLUME ["/etc/transmission-daemon/blocklists"]
+VOLUME ["/etc/transmission-daemon/torrents"]
 
 EXPOSE 9091 51413/tcp 51413/udp
 
