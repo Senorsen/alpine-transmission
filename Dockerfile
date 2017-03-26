@@ -1,10 +1,8 @@
 FROM alpine:latest
 
-MAINTAINER Open Source Services [opensourceservices.fr]
+LABEL maintainer="Senorsen <senorsen.zhang@gmail.com>"
 
-RUN apk add --update \
-    transmission-daemon \
-    && rm -rf /var/cache/apk/*
+RUN apk add --no-cache transmission-daemon
 
 RUN mkdir -p /transmission/downloads \
   && mkdir -p /transmission/incomplete \
