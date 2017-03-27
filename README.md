@@ -25,9 +25,9 @@ Run the container:
     -e "PASSWORD=password" \
     -v /srv/docker/storage/transmission/downloads:/transmission/downloads \
     -v /srv/docker/storage/transmission/incomplete:/transmission/incomplete \
-    -v /srv/docker/storage/transmission/resume:/transmission/resume \
-    -v /srv/docker/storage/transmission/blocklists:/transmission/blocklists \
-    -v /srv/docker/storage/transmission/torrents:/transmission/torrents \
+    -v /srv/docker/storage/transmission/resume:/etc/transmission-daemon/resume \
+    -v /srv/docker/storage/transmission/blocklists:/etc/transmission-daemon/blocklists \
+    -v /srv/docker/storage/transmission/torrents:/etc/transmission-daemon/torrents \
     senorsen/alpine-transmission
 
 Connect to running container::
