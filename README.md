@@ -19,7 +19,7 @@ Create:
 
 Run the container:
 
-    docker run -d --name transmission \
+    docker run -d --restart on-failure --name transmission \
     -p 9091:9091 \
     -p 51413:51413/tcp \
     -p 51413:51413/udp \
