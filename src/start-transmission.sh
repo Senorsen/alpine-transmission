@@ -21,4 +21,12 @@ fi
 
 unset PASSWORD USERNAME
 
-exec /usr/bin/transmission-daemon --foreground --config-dir /etc/transmission-daemon
+term_handler() {
+    kill -SIGHUP $pid
+}
+
+trap 'term_handler' SIGTERM
+
+/usr/bin/transmission-daemon --foreground --config-dir /etc/transmission-daemon &
+pid=$!
+wait $pid
