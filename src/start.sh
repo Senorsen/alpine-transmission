@@ -2,6 +2,9 @@
 
 set -e
 SETTINGS=/etc/transmission-daemon/settings.json
+if [[ ! -f ${SETTINGS} ]]; then
+    cp settings.json $SETTINGS
+fi
 
 if [[ ! -f ${SETTINGS}.bak ]]; then
 	# Checks for USERNAME variable

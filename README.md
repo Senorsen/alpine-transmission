@@ -11,9 +11,11 @@ Change transmission-daemon config:
 
     docker run -ti senorsen/alpine-transmission vi /etc/transmission-daemon/settings.json
 
+And a simple `docker stop` should save settings, too.
+
 Create:
 
-    mkdir -p /srv/docker/storage/transmission/{downloads,incomplete,resume,blocklists,torrents}
+    mkdir -p /srv/docker/storage/transmission/{downloads,etc}
 
 Run the container:
 
@@ -24,15 +26,11 @@ Run the container:
     -e "USERNAME=admin" \
     -e "PASSWORD=password" \
     -v /srv/docker/storage/transmission/downloads:/transmission/downloads \
-    -v /srv/docker/storage/transmission/incomplete:/transmission/incomplete \
-    -v /srv/docker/storage/transmission/resume:/etc/transmission-daemon/resume \
-    -v /srv/docker/storage/transmission/blocklists:/etc/transmission-daemon/blocklists \
-    -v /srv/docker/storage/transmission/torrents:/etc/transmission-daemon/torrents \
-    senorsen/alpine-transmission
+    -v /srv/docker/storage/transmission/etc:/etc/transmission-daemon \
+    senorsen/alpine-transmission:latest
 
 Connect to running container::
 
-    docker exec -ti _name_container_ /bin/sh
+    docker exec -ti transmission /bin/sh
 
 
-```

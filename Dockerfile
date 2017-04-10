@@ -12,14 +12,12 @@ COPY src/ .
 
 VOLUME ["/transmission/downloads"]
 VOLUME ["/transmission/incomplete"]
-VOLUME ["/etc/transmission-daemon/resume"]
-VOLUME ["/etc/transmission-daemon/blocklists"]
-VOLUME ["/etc/transmission-daemon/torrents"]
+VOLUME ["/etc/transmission-daemon"]
 
 EXPOSE 9091 51413/tcp 51413/udp
 
 ENV USERNAME admin
 ENV PASSWORD password
 
-RUN chmod +x /start-transmission.sh
-CMD ["/start-transmission.sh"]
+RUN chmod +x /start.sh
+CMD ["/start.sh"]
