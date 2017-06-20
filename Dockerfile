@@ -2,7 +2,7 @@ FROM alpine:latest
 
 LABEL maintainer="Senorsen <senorsen.zhang@gmail.com>"
 
-RUN apk add --no-cache transmission-daemon
+RUN apk add --no-cache transmission-daemon \
   && echo '#torrent_upload_file, label[for="torrent_upload_file"] {display: block !important;}' >> /usr/share/transmission/web/style/transmission/mobile.css
 # dirty hack for mobile ui
 
